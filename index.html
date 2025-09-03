@@ -4,38 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>banco IEL</title>
+    <title>Banco IEL</title>
 </head>
 
 <body>
-    <h2>calculadora de juros compostos</h2>
+    <h2>Calculadora de Juros Compostos</h2>
 
-    <label>taxa de inicial R$: </label>
+    <label>Valor Inicial R$: </label>
     <input type="number" id="valorInicial">
     <br>
 
-    <label>taxa de juros (%): </label>
+    <label>Taxa de Juros (%): </label>
     <input type="number" id="taxa">
     <br>
 
-    <label>tempo: </label>
+    <label>Tempo (meses ou anos): </label>
     <input type="number" id="tempo">
+    <br><br>
 
-    <button onclick="calcular()">calcular</button>
+    <button onclick="calcular()">Calcular</button>
 
     <h3 id="resultado"></h3>
 
     <script>
         function calcular() {
-            const valorInicial = parceFloat(document.getElementById('valor inicial')).value;
+ 
+            const vi = parseFloat(document.getElementById('valorInicial').value);
+            const taxa = parseFloat(document.getElementById('taxa').value) / 100;
+            const tempo = parseFloat(document.getElementById('tempo').value);
 
-            const taxa = parseFloat(document.elementById('taxa').value) / 100;
+            if (isNaN(vi) || isNaN(taxa) || isNaN(tempo)) {
+                document.getElementById('resultado').innerText = 'Por favor, preencha todos os campos corretamente.';
+                return;
+            }
+            const vf = vi * Math.pow(1 + taxa, tempo);
 
-            const tempo = parseFloat(document.elementById('tempo').value)
-
-            const vf = vi * match.pow(1 + taxa, tempo);
-
-            document.getElementById('resultado').innerText = 'valor final R$' + vf.toFixed(2);
+            document.getElementById('resultado').innerText = 'Valor Final: R$ ' + vf.toFixed(2);
         }
     </script>
 
