@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>banco IEL</title>
+</head>
+
+<body>
+    <h2>calculadora de juros compostos</h2>
+
+    <label>taxa de inicial R$: </label>
+    <input type="number" id="valorInicial">
+    <br>
+
+    <label>taxa de juros (%): </label>
+    <input type="number" id="taxa">
+    <br>
+
+    <label>tempo: </label>
+    <input type="number" id="tempo">
+
+    <button onclick="calcular()">calcular</button>
+
+    <h3 id="resultado"></h3>
+
+    <script>
+        function calcular() {
+            const valorInicial = parceFloat(document.getElementById('valor inicial')).value;
+
+            const taxa = parseFloat(document.elementById('taxa').value) / 100;
+
+            const tempo = parseFloat(document.elementById('tempo').value)
+
+            const vf = vi * match.pow(1 + taxa, tempo);
+
+            document.getElementById('resultado').innerText = 'valor final R$' + vf.toFixed(2);
+        }
+    </script>
+
+</body>
+
+</html>
