@@ -10,16 +10,11 @@
 
 <body>
     <h2>Calculadora de Juros Compostos</h2>
-    <h2>Calculadora de Juros Compostos</h2>
 
-    <label>Valor Inicial (R$): </label>
-    <input type="number" id="valorInicial" step="0.01">
     <label>Valor Inicial (R$): </label>
     <input type="number" id="valorInicial" step="0.01">
     <br>
 
-    <label>Taxa de Juros (% ao ano): </label>
-    <input type="number" id="taxa" step="0.01">
     <label>Taxa de Juros (% ao ano): </label>
     <input type="number" id="taxa" step="0.01">
     <br>
@@ -28,7 +23,6 @@
     <input type="number" id="tempo" step="0.01">
     <br><br>
 
-    <button onclick="calcular()">Calcular</button>
     <button onclick="calcular()">Calcular</button>
 
     <h3 id="resultado"></h3>
@@ -53,35 +47,13 @@
 
             const vf = vi * Math.pow(1 + taxa, tempoConvertido);
 
-            const vi = parseFloat(document.getElementById('valorInicial').value);
-            const taxa = parseFloat(document.getElementById('taxa').value) / 100;
-            const tempo = parseFloat(document.getElementById('tempo').value);
-            const unidade = document.getElementById('unidadeTempo').value;
-
-            if (isNaN(vi) || isNaN(taxa) || isNaN(tempo) || vi <= 0 || taxa <= 0 || tempo <= 0) {
-                document.getElementById('resultado').innerText = 'Por favor, preencha todos os campos com valores válidos e maiores que zero.';
-                return;
-            }
-
-            let tempoConvertido = tempo;
-            if (unidade === 'meses') {
-                tempoConvertido = tempo / 12;
-            }
-
-
-            const vf = vi * Math.pow(1 + taxa, tempoConvertido);
-
 
             document.getElementById('resultado').innerText =
                 'Valor Final: R$ ' + vf.toLocaleString('pt-BR', {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2
                 });
-            document.getElementById('resultado').innerText =
-                'Valor Final: R$ ' + vf.toLocaleString('pt-BR', {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                });
+            
         }
     </script>
 
